@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { setPresidents, isLoading, hasErrored } from './actions';
+import Card from './components/Card.js';
 
 class App extends Component {
 
   componentDidMount = async () => {
-    const url = 'http://localhost:3001/api/v1/presidents/4';
+    const url = 'http://localhost:3001/api/v1/presidents';
     try {
       this.props.isLoading(true);
       const response = await fetch(url);
@@ -23,8 +24,12 @@ class App extends Component {
   }
 
   render = () => {
+    const cards = this.props.presidents.map((president, index) => {
+      return <Card {...president} key={index} />
+    })
     return (
       <div className="App">
+        {cards}
         <p>Loading: {this.props.loading ? 'true' : 'false'}</p>
         <p>Error: {this.props.error}</p>
       </div>
