@@ -41,13 +41,13 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
+export const mapStateToProps = (state) => ({
   presidents: state.presidents,
   loading: state.loading,
   error: state.error
 })
 
-const mapDispatchToProps = (dispatch) => ({
+export const mapDispatchToProps = (dispatch) => ({
   setPresidents: (presidents) => dispatch(setPresidents(presidents)),
   isLoading: (boolean) => dispatch(isLoading(boolean)),
   hasErrored: (error) => dispatch(hasErrored(error))
