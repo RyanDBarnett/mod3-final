@@ -10,7 +10,7 @@ describe('presidentsReducer', () => {
   it('should return an array of presidents', () => {
     const initialState = [];
     const expected = [{president: 'Donald Duck'}]
-    let result = presidents(initialState, {type: 'SET_PRESIDENTS', presidents: expected});
+    const result = presidents(initialState, {type: 'SET_PRESIDENTS', presidents: expected});
     expect(result).toEqual(expected);
   });
 });

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { setPresidents, isLoading, hasErrored } from './actions';
-import Card from './components/Card';
+import { setPresidents, isLoading, hasErrored } from '../../actions';
+import Card from '../../components/Card';
 
 class App extends Component {
 
