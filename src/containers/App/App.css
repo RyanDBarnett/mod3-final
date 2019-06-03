@@ -2,6 +2,11 @@
   background: red;
 }
 
+select {
+  display: block;
+  margin: auto;
+}
+
 h1 {
   text-align: center;
   color: white;

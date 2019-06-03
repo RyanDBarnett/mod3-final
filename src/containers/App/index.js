@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { setPresidents, isLoading, hasErrored } from '../../actions';
+import { setPresidents, setParty, isLoading, hasErrored } from '../../actions';
 import Card from '../../components/Card';
 
 class App extends Component {
@@ -28,9 +28,16 @@ class App extends Component {
     const cards = presidents.map((president, index) => {
       return <Card {...president} key={index} />
     })
+    const parties = ['No Party','Federalist', 'Democratic-Republican', 'Democratic', 'Whig', 'Republican'];
+    const options = parties.map(party => {
+      return <option>{party}</option>
+    })
     return (
       <div className="App">
         <h1>Presidents and Assholes</h1>
+        <select name="party">
+          {options}
+        </select>
         <div className="cards-container">
           {cards}
         </div>
@@ -44,13 +51,15 @@ class App extends Component {
 export const mapStateToProps = (state) => ({
   presidents: state.presidents,
   loading: state.loading,
-  error: state.error
+  error: state.error,
+  party: state.party
 })
 
 export const mapDispatchToProps = (dispatch) => ({
   setPresidents: (presidents) => dispatch(setPresidents(presidents)),
   isLoading: (boolean) => dispatch(isLoading(boolean)),
-  hasErrored: (error) => dispatch(hasErrored(error))
+  hasErrored: (error) => dispatch(hasErrored(error)),
+  setParty: (party) => dispatch(setParty(party))
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(App);
