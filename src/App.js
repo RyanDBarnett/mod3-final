@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
-import { setPresidents } from '../actions';
+import { setPresidents } from '../actions/index.js';
 
 class App extends Component {
   constructor() {
@@ -15,7 +15,7 @@ class App extends Component {
     const url = 'http://localhost:3001/api/v1/presidents';
     const response = await fetch(url);
     const data = await response.json();
-    console.log(data);
+    this.props.setPresidents(data);
   }
 
   render = () => {
@@ -31,4 +31,4 @@ const mapDispatchToProps = (dispatch) => {
   setPresidents: (presidents) => dispatch(setPresidents(presidents))
 }
 
-export default coonnect(null, mapDispatchToProps)(App);
+export default connect(null, mapDispatchToProps)(App);
