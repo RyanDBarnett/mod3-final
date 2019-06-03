@@ -4,3 +4,17 @@ export const setPresidents = (presidents) => {
     presidents
   }
 }
+
+export const isLoading = (boolean) => {
+  return {
+    type: 'IS_LOADING',
+    boolean
+  }
+}
+
+export const hasErrored = (error) => {
+  return {
+    type: 'HAS_ERRORED',
+    error
+  }
+}
