@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import presidents from './presidentsReducer';
-import isLoading from './isLoadingReducer';
+import loading from './isLoadingReducer';
 import error from './errorReducer';
 
 const rootReducer = combineReducers({
   presidents,
-  isLoading,
+  loading,
   error
 })
 

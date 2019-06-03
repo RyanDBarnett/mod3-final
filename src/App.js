@@ -10,18 +10,22 @@ class App extends Component {
     try {
       this.props.isLoading(true);
       const response = await fetch(url);
+      if (!response.ok) {
+        throw Error(response.statusText)
+      }
       const data = await response.json();
       this.props.setPresidents(data);
       this.props.isLoading(false);
     } catch (error) {
-      this.props.hasErrored(error);
+      this.props.hasErrored(error.message);
     }
   }
 
   render = () => {
     return (
       <div className="App">
-        
+        <p>Loading: {this.props.loading ? 'true' : 'false'}</p>
+        <p>Error: {this.props.error}</p>
       </div>
     ); 
   }
@@ -29,7 +33,7 @@ class App extends Component {
 
 const mapStateToProps = (state) => ({
   presidents: state.presidents,
-  isLoading: state.isLoading,
+  loading: state.loading,
   error: state.error
 })
 
