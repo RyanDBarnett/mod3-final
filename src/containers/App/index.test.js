@@ -1,8 +1,28 @@
 import App from './'
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { shallow } from 'enzyme';
 import { mapStateToProps, mapDispatchToProps } from './'
 import { setPresidents, hasErrored, isLoading } from '../../actions';
 
 describe('App', () => {
+  it.skip('should match the snapshot', () => { 
+    const reduxStore = {
+      presidents: ['George', 'Jefferson'],
+      error: '',
+      loading: false
+    }
+    const wrapper = shallow(
+      render(
+        <Provider store={reduxStore}>
+          <App />
+        </Provider>, document.getElementById('root')
+      )
+    ); 
+
+    expect(wrapper).toMatchSnapshot(); 
+  });
 
   describe('mapStateToProps', () => {
     it('should return an object with the todos array', () => {
