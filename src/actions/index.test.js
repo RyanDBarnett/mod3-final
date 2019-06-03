@@ -11,6 +11,16 @@ describe('actions', () => {
     expect(result).toEqual(expectedAction);
   });
 
+  it('should have a type of SET_PARTY', () => {
+    const party = 'Republican';
+    const expectedAction = {
+      type: 'SET_PARTY',
+      party
+    }
+    const result = actions.setParty(party);
+    expect(result).toEqual(expectedAction);
+  });
+
   it('should have a type of IS_LOADING', () => {
     const isLoading = true;
     const expectedAction = {
