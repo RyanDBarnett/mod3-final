@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import { connect } from 'react-redux';
+import { setPresidents } from '../actions';
 
 class App extends Component {
   constructor() {
@@ -25,4 +27,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = (dispatch) => {
+  setPresidents: (presidents) => dispatch(setPresidents(presidents))
+}
+
+export default coonnect(null, mapDispatchToProps)(App);
