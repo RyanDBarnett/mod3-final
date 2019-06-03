@@ -24,7 +24,8 @@ class App extends Component {
   }
 
   render = () => {
-    const cards = this.props.presidents.map((president, index) => {
+    const {presidents, loading, error} = this.props
+    const cards = presidents.map((president, index) => {
       return <Card {...president} key={index} />
     })
     return (
@@ -33,8 +34,8 @@ class App extends Component {
         <div className="cards-container">
           {cards}
         </div>
-        <p>Loading: {this.props.loading ? 'true' : 'false'}</p>
-        <p>Error: {this.props.error}</p>
+        <p>Loading: {loading ? 'true' : 'false'}</p>
+        <p>Error: {error}</p>
       </div>
     ); 
   }
