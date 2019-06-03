@@ -1,4 +1,5 @@
 import React from 'react';
+import './Card.css';
 
 const Card = ({number, president, birth_year, death_year, took_office, left_office, party}) => {
   return (
@@ -10,7 +11,6 @@ const Card = ({number, president, birth_year, death_year, took_office, left_offi
       <p>Took Office: {took_office}</p>
       <p>Left Office: {left_office}</p>
       <p>Party: {party}</p>
-
     </div>
   ); 
 }

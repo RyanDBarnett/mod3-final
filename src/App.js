@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { connect } from 'react-redux';
 import { setPresidents, isLoading, hasErrored } from './actions';
-import Card from './components/Card.js';
+import Card from './components/Card';
 
 class App extends Component {
 
@@ -29,7 +29,10 @@ class App extends Component {
     })
     return (
       <div className="App">
-        {cards}
+        <h1>Presidents and Assholes</h1>
+        <div className="cards-container">
+          {cards}
+        </div>
         <p>Loading: {this.props.loading ? 'true' : 'false'}</p>
         <p>Error: {this.props.error}</p>
       </div>

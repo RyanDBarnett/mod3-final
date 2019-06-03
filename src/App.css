@@ -1,0 +1,17 @@
+.App {
+  background: red;
+}
+
+h1 {
+  text-align: center;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+.cards-container {
+  display: flex;
+  background: blue;
+  margin: 20px;
+  flex-wrap: wrap;
+}
