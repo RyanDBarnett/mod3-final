@@ -5,6 +5,13 @@ export const setPresidents = (presidents) => {
   }
 }
 
+export const setParty = (party) => {
+  return {
+    type: 'SET_PARTY',
+    party
+  }
+}
+
 export const isLoading = (boolean) => {
   return {
     type: 'IS_LOADING',
