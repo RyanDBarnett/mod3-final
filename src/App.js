@@ -6,16 +6,17 @@ import { setPresidents, isLoading, hasErrored } from './actions';
 class App extends Component {
 
   componentDidMount = async () => {
-    const url = 'http://localhost:3001/api/v1/presidents';
+    const url = 'http://localhost:3001/api/v1/presidents/4';
     try {
       this.props.isLoading(true);
       const response = await fetch(url);
       if (!response.ok) {
+        this.props.isLoading(false);
         throw Error(response.statusText)
       }
       const data = await response.json();
-      this.props.setPresidents(data);
       this.props.isLoading(false);
+      this.props.setPresidents(data);
     } catch (error) {
       this.props.hasErrored(error.message);
     }
